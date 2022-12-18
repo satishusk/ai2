@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 public class HighDemand extends ConclusionFunction {
 
   @Override
-  protected Integer accumulate(Double membershipPower) {
+  protected Long accumulate(Double membershipPower) {
     if (membershipPower <= 0.7) {
-      return (int) (10/7 * membershipPower + 6);
+      return (long) (10/7 * membershipPower + 6);
     } else {
-      return (int) (10 * membershipPower);
+      return (long) (10 * membershipPower);
     }
   }
 

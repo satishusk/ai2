@@ -20,7 +20,7 @@ public class Rule extends MembershipFunction {
   }
 
   @Override
-  protected Double membershipPower(Queue<Integer> inputs) {
+  protected Double membershipPower(Queue<Long> inputs) {
     System.out.println(depthLevelInfo());
     depthLevel++;
     Double accumulator = functionsOnLevel.get(0).apply(inputs);

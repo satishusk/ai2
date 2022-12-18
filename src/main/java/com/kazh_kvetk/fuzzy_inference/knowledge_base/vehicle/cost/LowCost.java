@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class LowCost extends MembershipFunction {
   @Override
-  protected Double membershipPower(Queue<Integer> inputs) {
-    int input = Objects.requireNonNull(inputs.poll());
+  protected Double membershipPower(Queue<Long> inputs) {
+    Long input = Objects.requireNonNull(inputs.poll());
     if (input < 20 || input > 400) {
       return 0d;
     }

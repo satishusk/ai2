@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class LowQuality extends MembershipFunction {
   @Override
-  protected Double membershipPower(Queue<Integer> inputs) {
-    int input = Objects.requireNonNull(inputs.poll());
+  protected Double membershipPower(Queue<Long> inputs) {
+    long input = Objects.requireNonNull(inputs.poll());
     if (input < 0 || input > 4) {
       return 0d;
     }

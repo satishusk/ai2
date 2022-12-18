@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 public class MiddleQuality extends MembershipFunction {
 
   @Override
-  protected Double membershipPower(Queue<Integer> inputs) {
-    int input = Objects.requireNonNull(inputs.poll());
+  protected Double membershipPower(Queue<Long> inputs) {
+    long input = Objects.requireNonNull(inputs.poll());
     if (input < 3 || input > 7) {
       return 0d;
     }

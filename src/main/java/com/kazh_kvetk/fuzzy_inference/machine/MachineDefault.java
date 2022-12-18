@@ -11,7 +11,7 @@ public class MachineDefault implements Machine {
   private Double accumulator = 0d;
 
   @Override
-  public void accumulate(Rule rule, Queue<Integer> inputs) {
+  public void accumulate(Rule rule, Queue<Long> inputs) {
     Double ruleCompliance = rule.apply(inputs);
     if (ruleCompliance != 0) {
       compliances.put(ruleCompliance, rule);
@@ -20,10 +20,10 @@ public class MachineDefault implements Machine {
   }
 
   @Override
-  public Integer mostConsistentRuleResult() {
+  public Long mostConsistentRuleResult() {
     Rule rule = compliances.get(accumulator);
     if (rule == null) {
-      return 0;
+      return 0L;
     }
     return rule.getConclusionFunction().apply(accumulator);
   }
@@ -34,8 +34,8 @@ public class MachineDefault implements Machine {
     if (rule == null) {
       return new ConclusionFunction() {
         @Override
-        protected Integer accumulate(Double membershipPower) {
-          return 0;
+        protected Long accumulate(Double membershipPower) {
+          return 0L;
         }
 
         @Override

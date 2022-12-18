@@ -7,14 +7,14 @@ import org.springframework.stereotype.Component;
 public class MiddleDemand extends ConclusionFunction {
 
   @Override
-  protected Integer accumulate(Double membershipPower) {
+  protected Long accumulate(Double membershipPower) {
     if (membershipPower < 0.3 || membershipPower > 0.6) {
-      return 3;
+      return 3l;
     }
     if (membershipPower <= 0.45) {
-      return (int) (80/3 * membershipPower - 5);
+      return (long) (80/3 * membershipPower - 5);
     } else {
-      return (int) (-80/3 * membershipPower + 19);
+      return (long) (-80/3 * membershipPower + 19);
     }
   }
 
