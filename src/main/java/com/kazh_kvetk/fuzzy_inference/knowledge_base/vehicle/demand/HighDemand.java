@@ -14,4 +14,9 @@ public class HighDemand extends ConclusionFunction {
       return (int) (10 * membershipPower);
     }
   }
+
+  @Override
+  public String functionName() {
+    return "HighDemand";
+  }
 }

@@ -14,4 +14,9 @@ public class LowDemand extends ConclusionFunction {
       return (int) (-7.5 * membershipPower + 7.5);
     }
   }
+
+  @Override
+  public String functionName() {
+    return "LowDemand";
+  }
 }

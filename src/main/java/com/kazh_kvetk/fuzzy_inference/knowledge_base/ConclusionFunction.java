@@ -13,4 +13,6 @@ public abstract class ConclusionFunction implements Function<Double, Integer> {
   }
 
   protected abstract Integer accumulate(Double membershipPower);
+
+  public abstract String functionName();
 }

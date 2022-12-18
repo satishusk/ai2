@@ -17,4 +17,9 @@ public class MiddleDemand extends ConclusionFunction {
       return (int) (-80/3 * membershipPower + 19);
     }
   }
+
+  @Override
+  public String functionName() {
+    return "MiddleDemand";
+  }
 }

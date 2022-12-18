@@ -41,7 +41,7 @@ public class RulesConfig {
     MiddleQuality middleQuality, LowQuality lowQuality) {
     return new Rule()
       .start(new Rule().start(highCost).and(middleQuality).end())
-      .or(new Rule().start(highCost).and(middleQuality).end())
+      .or(new Rule().start(highCost).and(lowQuality).end())
       .or(new Rule().start(middleCost).and(lowQuality).end())
       .conclusion(new LowDemand());
   }
