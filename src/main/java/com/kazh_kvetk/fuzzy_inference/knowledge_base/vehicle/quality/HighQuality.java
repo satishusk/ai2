@@ -9,13 +9,13 @@ import org.springframework.stereotype.Component;
 public class HighQuality extends MembershipFunction {
   @Override
   protected Double membershipPower(Queue<Long> inputs) {
-    long input = Objects.requireNonNull(inputs.poll());
-    if (input < 6) {
+    long x = Objects.requireNonNull(inputs.poll());
+    if (x < 40) {
       return 0d;
     }
-    if (input < 10) {
-      return 0.25 * input - 1.5;
+    if (x < 60) {
+      return x / 20.0 - 2;
     }
-    return 1d;
+    return x/40.0 - 1.5;
   }
 }

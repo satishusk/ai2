@@ -1,5 +1,7 @@
 package com.kazh_kvetk.fuzzy_inference.knowledge_base.vehicle.cost;
 
+import static java.lang.Math.*;
+
 import com.kazh_kvetk.fuzzy_inference.knowledge_base.MembershipFunction;
 import java.util.Objects;
 import java.util.Queue;
@@ -9,13 +11,11 @@ import org.springframework.stereotype.Component;
 public class HighCost extends MembershipFunction {
   @Override
   protected Double membershipPower(Queue<Long> inputs) {
-    long input = Objects.requireNonNull(inputs.poll());
-    if (input < 5000) {
+    long x = Objects.requireNonNull(inputs.poll());
+    if (x <= 3_000_000) {
       return 0d;
+    } else {
+      return x / 7_000_000.0 - 3/7.0;
     }
-    if (input < 100_000) {
-      return input / 95000.0 - 1/19.0;
-    }
-    return 1d;
   }
 }

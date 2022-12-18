@@ -10,13 +10,13 @@ public class MiddleQuality extends MembershipFunction {
 
   @Override
   protected Double membershipPower(Queue<Long> inputs) {
-    long input = Objects.requireNonNull(inputs.poll());
-    if (input < 3 || input > 7) {
+    long x = Objects.requireNonNull(inputs.poll());
+    if (x < 30) {
       return 0d;
     }
-    if (input < 5) {
-      return 0.5 * input - 1.5;
+    if (x < 60) {
+      return x / 30.0 - 1;
     }
-    return -0.5 * input + 3.5;
+    return 2.5 - x/40.0;
   }
 }

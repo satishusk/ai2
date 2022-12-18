@@ -8,14 +8,13 @@ public class MiddleDemand extends ConclusionFunction {
 
   @Override
   protected Long accumulate(Double membershipPower) {
-    if (membershipPower < 0.3 || membershipPower > 0.6) {
-      return 3l;
+    if (membershipPower <= 0.2) {
+      return 0L;
     }
-    if (membershipPower <= 0.45) {
-      return (long) (80/3 * membershipPower - 5);
-    } else {
-      return (long) (-80/3 * membershipPower + 19);
+    if (membershipPower <= 0.6) {
+      return (long) (100 * (membershipPower / 0.4 - 1/2.0));
     }
+    return (long) (100 * (-membershipPower / 0.4 + 2.5));
   }
 
   @Override

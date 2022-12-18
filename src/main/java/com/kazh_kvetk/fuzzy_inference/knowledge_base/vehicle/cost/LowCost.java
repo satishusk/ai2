@@ -9,10 +9,11 @@ import org.springframework.stereotype.Component;
 public class LowCost extends MembershipFunction {
   @Override
   protected Double membershipPower(Queue<Long> inputs) {
-    Long input = Objects.requireNonNull(inputs.poll());
-    if (input < 20 || input > 400) {
+    long x = Objects.requireNonNull(inputs.poll());
+    if (x >= 1_000_000 && x < 8_000_000) {
+      return -x / 7_000_000.0 + 8/7.0;
+    } else {
       return 0d;
     }
-    return -input / 380.0 + 20/19.0;
   }
 }

@@ -13,16 +13,9 @@ public class Rule extends MembershipFunction {
 
   private ConclusionFunction conclusionFunction;
 
-  private static int depthLevel = 1;
-
-  private String depthLevelInfo() {
-    return "-------   ".repeat(Math.max(0, depthLevel));
-  }
-
   @Override
   protected Double membershipPower(Queue<Long> inputs) {
-    System.out.println(depthLevelInfo());
-    depthLevel++;
+
     Double accumulator = functionsOnLevel.get(0).apply(inputs);
     for (int i = 0; i < operatorsOnLevel.size(); i++) {
       accumulator = switch (operatorsOnLevel.get(i)) {
@@ -33,7 +26,6 @@ public class Rule extends MembershipFunction {
           functionsOnLevel.get(i + 1).apply(inputs));
       };
     }
-    depthLevel--;
     return accumulator;
   }
 

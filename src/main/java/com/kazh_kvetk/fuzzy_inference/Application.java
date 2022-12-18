@@ -36,13 +36,12 @@ public class Application {
     Machine machine = context.getBean("machine", Machine.class);
 
     try(BufferedReader r = new BufferedReader(new InputStreamReader(System.in))) {
-      System.out.println("\n");
+      System.out.println("\nL/W N2. Kazhukov, Kvetkin. Var-4");
       System.out.print("Cost: ");
-      Long cost = Long.parseLong(r.readLine()) / 1000;
+      Long cost = Long.parseLong(r.readLine());
 
       System.out.print("Quality: ");
-      Long quality = Long.parseLong(r.readLine()) / 10;
-      System.out.println("\n");
+      Long quality = Long.parseLong(r.readLine());
 
       Queue<Long> preparedInputs = new ArrayDeque<>(
         List.of(cost, quality, cost, quality, cost, quality)
@@ -52,10 +51,9 @@ public class Application {
       machine.accumulate(ruleMiddleDemand, new ArrayDeque<>(preparedInputs));
       machine.accumulate(ruleLowDemand, new ArrayDeque<>(preparedInputs));
 
-      System.out.println("\n");
-      System.out.println("Input: Cost=" + cost * 1000 + ", Quality=" + quality * 10 + "%");
-      System.out.println("Output: Demand=" + machine.mostConsistentRuleResult() * 10 + "%, " + machine.mostConsistentFunction().functionName());
-      System.out.println("\n");
+      System.out.println();
+      System.out.println("Input: Cost=" + cost + ", Quality=" + quality + "%");
+      System.out.println("Output: Demand=" + machine.mostConsistentRuleResult() + "%, " + machine.mostConsistentFunction().functionName());
     } catch (IOException ex) {
       ex.printStackTrace();
     }

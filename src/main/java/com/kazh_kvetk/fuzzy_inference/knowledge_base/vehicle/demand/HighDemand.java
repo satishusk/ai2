@@ -8,11 +8,10 @@ public class HighDemand extends ConclusionFunction {
 
   @Override
   protected Long accumulate(Double membershipPower) {
-    if (membershipPower <= 0.7) {
-      return (long) (10/7 * membershipPower + 6);
-    } else {
-      return (long) (10 * membershipPower);
+    if (membershipPower <= 0.4) {
+      return 0L;
     }
+    return (long) (100 * (membershipPower/0.6 - 2/3.0));
   }
 
   @Override
